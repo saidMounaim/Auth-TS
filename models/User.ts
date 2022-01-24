@@ -9,6 +9,7 @@ export interface IUser extends mongoose.Document {
     token?: string,
     createdAt: Date,
     updatedAt: Date,
+    comparePassword(password: string): Promise<boolean>;
 }
 
 const UserSchema = new mongoose.Schema({
@@ -43,6 +44,8 @@ UserSchema.pre("save", async function(next) {
     const hash = bcrypt.hashSync(user.password, salt);
     
     user.password = hash;
+
+    return next();
 
 })
 

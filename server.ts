@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import UserRoutes from './routes/UserRoutes';
 
 const app: Application = express();
 
@@ -11,6 +12,9 @@ app.use(express.json());
 app.get("/api", (req: Request, res: Response) =>  {
     res.status(201).json({ message: "Welcome to Auth ts" });
 })
+
+// User Route
+app.use("/api/auth", UserRoutes);
 
 const PORT = process.env.PORT || 5000;
 

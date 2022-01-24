@@ -1,6 +1,8 @@
 import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { notFound, errorHandler } from './middlewares/ErrorMiddleware';
 import UserRoutes from './routes/UserRoutes';
+
 
 const app: Application = express();
 
@@ -15,6 +17,10 @@ app.get("/api", (req: Request, res: Response) =>  {
 
 // User Route
 app.use("/api/auth", UserRoutes);
+
+// Middleware
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

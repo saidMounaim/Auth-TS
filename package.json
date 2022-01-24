@@ -1,0 +1,22 @@
+{
+  "name": "auth-ts",
+  "version": "1.0.0",
+  "description": "TypeScript Rest API with Express.js, JWT, MongoDB",
+  "main": "server.ts",
+  "scripts": {
+    "server": "ts-node-dev server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.10",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7"
+  }
+}

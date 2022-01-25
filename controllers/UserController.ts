@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import { Request, Response } from 'express';
 import User from '../models/User';
+import generateToken from '../utils/generateToken';
 
 // @Desc Login 
 // @Route /api/auth/
@@ -20,7 +21,8 @@ export const login = asyncHandler (async (req: Request, res: Response) => {
         res.status(201).json({ success: true, user: {
             id: user._id,
             email: user.email,
-            fullName: user.fullName
+            fullName: user.fullName,
+            token: generateToken(user._id)
         }})
 
     } else {
@@ -43,6 +45,10 @@ export const register = asyncHandler(async (req: Request, res: Response) => {
 
     await user.save();
 
-    res.status(201).json({ success: true, user });
+    res.status(201).json({ success: true, user: {
+        email: user.email,
+        fullName: user.fullName,
+        token: generateToken(user._id)
+    } });
 
 })

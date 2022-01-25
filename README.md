@@ -34,10 +34,11 @@ PORT = 5000
 MONGO_URI = your mongodb uri
 JWT_SECRET = 'abc123'
 
+```
+
 ## Install Dependencies
 
 ```
-
 npm install
 
 ```
@@ -55,4 +56,7 @@ npm run server
 - Version: 1.0.0
 - License: MIT
 - Author: Said Mounaim
+
+```
+
 ```

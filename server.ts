@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import connectDB from './config/db';
 import { notFound, errorHandler } from './middlewares/ErrorMiddleware';
 import UserRoutes from './routes/UserRoutes';
 
@@ -8,7 +9,10 @@ const app: Application = express();
 
 dotenv.config();
 
+connectDB();
+
 app.use(express.json());
+
 
 // Default
 app.get("/api", (req: Request, res: Response) =>  {

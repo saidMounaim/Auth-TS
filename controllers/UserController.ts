@@ -3,6 +3,16 @@ import { Request, Response } from 'express';
 import User from '../models/User';
 import generateToken from '../utils/generateToken';
 
+// @Desc Get all users
+// @Route /api/auth
+// @Method GET
+export const getAll = asyncHandler(async (req: Request, res: Response) => {
+
+    const users = await User.find({}).select('-password');
+    res.status(201).json({ success: true, count: users.length, users });
+
+})
+
 // @Desc Login 
 // @Route /api/auth/
 // @Method POST

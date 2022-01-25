@@ -56,7 +56,3 @@ npm run server
 - Version: 1.0.0
 - License: MIT
 - Author: Said Mounaim
-
-```
-
-```

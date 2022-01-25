@@ -28,5 +28,21 @@ export const login = asyncHandler (async (req: Request, res: Response) => {
         throw new Error("Email or password incorrect");
     }
 
+})
+
+// @Desc Register
+// @Route /api/auth/register
+// @Method POST
+export const register = asyncHandler(async (req: Request, res: Response) => {
+
+    const { email, fullName, password } = req.body;
+
+    const user = new User({
+        email, fullName, password
+    });
+
+    await user.save();
+
+    res.status(201).json({ success: true, user });
 
 })
